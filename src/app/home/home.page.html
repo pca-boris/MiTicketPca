@@ -4,22 +4,13 @@
     [pagination]="true"
     [slidesPerView]="1"
   >
-    <swiper-slide>
-      <h1 class="red-title">Los Yakusa</h1>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, sint.</p>
-      <img src="https://i.pinimg.com/474x/17/a5/f7/17a5f7581af2760adc5da7999b540c83.jpg" alt="">
-      <!-- <ion-avatar class="avatar-slide">
-        <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-      </ion-avatar> -->
+    <swiper-slide *ngFor="let slide of slides; let i = index">
+      <h1 class="red-title">{{slide.title}}</h1>
+      <p>{{slide.description}}</p>
+      <img [src]="slide.img" height="500">
+      <ion-button *ngIf="i === 4">Ver mas</ion-button>
     </swiper-slide>
-    <swiper-slide>Slide 1</swiper-slide>
-    <swiper-slide>Slide 2</swiper-slide>
-    <swiper-slide>Slide 3</swiper-slide>
-    <swiper-slide>Slide 4</swiper-slide>
-    <swiper-slide>Slide 5</swiper-slide>
-    <swiper-slide>Slide 6</swiper-slide>
   </swiper-container>
 
 </ion-content>
 
-<!-- MiTicketPca -->
