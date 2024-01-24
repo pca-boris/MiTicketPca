@@ -25,3 +25,10 @@
 #container a {
   text-decoration: none;
 }
+
+ion-button {
+  --background: #ff385c;
+  --background-hover: #e73354;
+  --background-activated: #e73354;
+  --background-focused: #e73354;
+}

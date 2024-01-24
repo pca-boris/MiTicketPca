@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-intro',
@@ -7,35 +8,44 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IntroPage implements OnInit {
 
-  constructor() { }
+  constructor(public router:Router) { }
 
   public slides = [
     {
       title: "Arboles Noches",
       description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, sint.",
-      img: "../../assets/img/uno.jpeg"
+      img: "../../assets/img/uno.jpeg",
+      subtitle: "Lorem ipsum dolor sit amet"
     },
     {
       title: "Arboles secos",
       description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, sint.",
-      img: "../../assets/img/dos.jpeg"
+      img: "../../assets/img/dos.jpeg",
+      subtitle: "Lorem ipsum dolor sit amet"
     },
     {
       title: "Montoñas rocosas",
       description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, sint.",
-      img: "../../assets/img/tres.jpeg"
+      img: "../../assets/img/tres.jpeg",
+      subtitle: "Lorem ipsum dolor sit amet"
     },
     {
       title: "Nieve en pleno",
       description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, sint.",
-      img: "../../assets/img/cuatro.jpeg"
+      img: "../../assets/img/cuatro.jpeg",
+      subtitle: "Lorem ipsum dolor sit amet"
     },
     {
       title: "Agua viva",
       description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, sint.",
-      img: "../../assets/img/cinco.jpeg"
+      img: "../../assets/img/cinco.jpeg",
+      subtitle: "Lorem ipsum dolor sit amet"
     }
-  ]
+  ];
+
+  public goToHome(): void {
+    this.router.navigate(['/home']);
+  }
 
   ngOnInit() {
   }

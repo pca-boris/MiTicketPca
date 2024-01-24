@@ -1,14 +1,38 @@
 <ion-content [fullscreen]="true">
+  <ion-button (click)="goToHome()">
+    <ion-icon name="home-outline" style="margin:  0 5px;"></ion-icon>
+  </ion-button>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Our images</ion-card-title>
+      <ion-card-subtitle>Animation images</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      Here you can see all our images in the best way 👁️
+    </ion-card-content>
+  </ion-card>
+
   <swiper-container
     [loop]="true" 
     [pagination]="true"
     [slidesPerView]="1"
   >
     <swiper-slide *ngFor="let slide of slides; let i = index">
-      <h1 class="red-title">{{slide.title}}</h1>
-      <p>{{slide.description}}</p>
-      <img [src]="slide.img" height="500">
-      <ion-button *ngIf="i === 4">Ver mas</ion-button>
+
+      <ion-card>
+        <img alt="Silhouette of mountains" [src]="slide.img" width="400" height="280" />
+        <ion-card-header>
+          <ion-card-title>{{slide.title}}</ion-card-title>
+          <ion-card-subtitle>{{slide.subtitle}}</ion-card-subtitle>
+        </ion-card-header>
+      
+        <ion-card-content>
+          {{slide.description}}
+        </ion-card-content>
+      </ion-card>
+
     </swiper-slide>
   </swiper-container>
 </ion-content>
