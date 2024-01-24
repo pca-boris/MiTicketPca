@@ -11,7 +11,6 @@ export class HomePage {
   constructor(private router:Router) {}
 
   public goToAbout(): void {
-    console.log("go to intro");
     this.router.navigateByUrl('/intro');
   }
 }
