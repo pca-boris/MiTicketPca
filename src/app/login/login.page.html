@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="loginForm" (submit)="login(loginForm.value)">
+    <ion-item>
+      <ion-input type="text" label="Email" label-placement="floating" formControlName="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="password" label="Password" label-placement="floating" formControlName="password"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-button type="submit" [disabled]="!loginForm.valid">Login</ion-button>
+    </ion-item>
+  </form>
+</ion-content>

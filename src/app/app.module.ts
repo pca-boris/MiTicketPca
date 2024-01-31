@@ -11,8 +11,19 @@ import { IntroGuard } from './guards/intro.guard';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, IonicStorageModule.forRoot()],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, IntroGuard],
+  imports: [
+    BrowserModule, 
+    IonicModule.forRoot(), 
+    AppRoutingModule, 
+    IonicStorageModule.forRoot()
+  ],
+  providers: [
+    { 
+      provide: RouteReuseStrategy, 
+      useClass: IonicRouteStrategy 
+    }, 
+    IntroGuard
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
