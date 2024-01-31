@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Storage } from '@ionic/storage-angular';
 
 @Component({
   selector: 'app-intro',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class IntroPage implements OnInit {
 
-  constructor(public router:Router) { }
+  constructor(public router:Router, private storage:Storage) { }
 
   public slides = [
     {
@@ -48,6 +49,11 @@ export class IntroPage implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  ionViewWillEnter() {
+    console.log("Ya entre y vi la intro");
+    this.storage.set("verIntro", true);
   }
 
 }
