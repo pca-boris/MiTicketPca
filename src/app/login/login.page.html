@@ -1,29 +1,45 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>login</ion-title>
+    <ion-icon name="person-circle-outline"></ion-icon>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <form [formGroup]="loginForm" (submit)="login(loginForm.value)">
-    <ion-item>
-      <ion-input type="text" label="Email" label-placement="floating" formControlName="email"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input type="password" label="Password" label-placement="floating" formControlName="password"></ion-input>
-    </ion-item>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Login company photos</ion-card-title>
+      <ion-card-subtitle>Thank you 👍 🌅 🏞️</ion-card-subtitle>
+    </ion-card-header>
+
+    <form [formGroup]="loginForm" (submit)="login(loginForm.value)" class="form-login">
+      <ion-item>
+        <ion-input type="text" label="Email" label-placement="floating" formControlName="email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="password" label="Password" label-placement="floating" formControlName="password"></ion-input>
+      </ion-item>
+      <div class="validation-message">
+        <ng-container *ngFor="let validation of validation_messages.email">
+          <div *ngIf="(loginForm.get('email')?.hasError(validation.type) && loginForm.get('email')?.dirty)">
+            {{validation.message}}
+          </div>
+        </ng-container>
+
+        <ng-container *ngFor="let validation of validation_messages.password">
+          <div *ngIf="(loginForm.get('password')?.hasError(validation.type) && loginForm.get('password')?.dirty)">
+            {{validation.message}}
+          </div>
+        </ng-container>
+      </div>
+      <div style="display: flex; justify-content: center;">
+        <ion-button type="submit" fill="solid"  [disabled]="!loginForm.valid">
+          <ion-icon style="margin: 0 5px;" name="log-out-outline"></ion-icon>
+          Login
+        </ion-button>
+      </div>
+    </form>
     <div class="validation-message">
-      <ng-container *ngFor="let validation of validation_messages.email">
-        <div *ngIf="(loginForm.get('email')?.hasError(validation.type) && loginForm.get('email')?.dirty)">
-          {{validation.message}}
-        </div>
-      </ng-container>
+      {{loginMessage}}
     </div>
-    <ion-item>
-      <ion-button type="submit" [disabled]="!loginForm.valid">Login</ion-button>
-    </ion-item>
-  </form>
-  <div class="validation-message">
-    {{loginMessage}}
-  </div>
+  </ion-card>
 </ion-content>

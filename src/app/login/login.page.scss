@@ -1,4 +1,22 @@
 .validation-message {
   color: red;
   margin-top: 8px;
+  text-align: center;
+  margin: 5px 0px;
+}
+
+ion-toolbar {
+  text-align: center;
+  font-size: 100px;
+}
+
+ion-button {
+  --background: #ff385c;
+  --background-hover: #e73354;
+  --background-activated: #e73354;
+  --background-focused: #e73354;
+}
+
+ion-item {
+  --background: transparent;
 }
