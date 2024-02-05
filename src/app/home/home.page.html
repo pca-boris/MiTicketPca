@@ -12,6 +12,15 @@
   
     <ion-card-content>
       Here you can see all the landscape images 👍
+      <swiper-container
+       [paginator]="true"
+       [slidesPerView]="1"
+      >
+        <swiper-slide *ngFor="let slide of event_list; let i = index">
+          <img src="{{slide.image}}">
+          {{slide.name}}
+        </swiper-slide>
+      </swiper-container>
     </ion-card-content>
   </ion-card>
   
