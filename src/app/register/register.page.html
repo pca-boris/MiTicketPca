@@ -53,6 +53,11 @@
             {{validation.message}}
           </div>
         </ng-container>
+        <ng-container *ngIf="messagePassword">
+          <div>
+            {{'passwords are not the same'}}
+          </div>
+        </ng-container>
       </div>
 
       <div style="display: flex; justify-content: center; margin: 5px 0px;">

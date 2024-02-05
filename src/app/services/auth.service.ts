@@ -17,7 +17,14 @@ export class AuthService {
     })
   }
 
-  registerUser() {
+  registerUser(credential: any) {
+    return new Promise((resolve, reject) => {
+      if(credential.name && credential.last_name && credential.email && credential.password) {
+        resolve('register success');
+      } else {
+        reject('register failed');
+      }
+    })
     
   }
 }

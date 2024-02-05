@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { NavController } from '@ionic/angular';
 import { Storage } from '@ionic/storage-angular';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -40,10 +41,13 @@ export class RegisterPage implements OnInit {
     ]
   };
 
+  messagePassword: any;
+
   constructor(
       private formBuilder:FormBuilder,
       private navCtrl:NavController,
-      private storage: Storage
+      private storage: Storage,
+      private authService:AuthService,
     ) { 
       this.registerForm = this.formBuilder.group({
         email: new FormControl("", Validators.compose([
@@ -78,6 +82,17 @@ export class RegisterPage implements OnInit {
 
   register(register_data:any): void {
     console.log(register_data);
+    if(register_data.password == register_data.confirmation_password) {
+      this.authService.registerUser(register_data).then((res:any) => {
+        console.log(res);
+        this.messagePassword = false;
+        this.storage.set('userResgister', true);
+      }).catch((err:any) => {
+        console.log(err);
+      }) 
+    }else {
+      this.messagePassword = true;
+    }
     // crear el servicio del registro
   }
 
