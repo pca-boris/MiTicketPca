@@ -16,4 +16,8 @@ export class AuthService {
       }
     })
   }
+
+  registerUser() {
+    
+  }
 }
